@@ -314,15 +314,83 @@
     .takeaway-grid b { display: block; margin-bottom: 10px; }
     .takeaway-grid span { color: var(--muted); font-size: 14px; line-height: 1.5; }
 
+
+
+    /* Concepts 04-08 */
+    .c4 { background: #f4f1ea; }
+    .c4 .desk-hero { padding: 34px clamp(20px, 4vw, 62px) 62px; display: grid; grid-template-columns: .95fr 1.05fr; gap: 30px; align-items: stretch; }
+    .c4 .desk-copy { border-radius: 34px; background: #fff; border: 1px solid rgba(16,19,25,.08); padding: clamp(28px, 4vw, 54px); display: flex; flex-direction: column; justify-content: space-between; min-height: 650px; }
+    .c4 h2, .c5 h2, .c6 h2, .c7 h2, .c8 h2 { margin: 0; font-family: var(--serif); letter-spacing: -.06em; line-height: .88; font-size: clamp(48px, 6.2vw, 104px); }
+    .c4 .lead, .c5 .lead, .c6 .lead, .c7 .lead, .c8 .lead { color: #5b6472; font-size: 19px; line-height: 1.55; max-width: 620px; margin: 22px 0 28px; }
+    .desk-board { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .desk-card { border-radius: 28px; background: #111827; color: #fff; min-height: 205px; padding: 22px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
+    .desk-card.light { background: #fff; color: var(--ink); border: 1px solid rgba(16,19,25,.08); }
+    .desk-card.image { padding: 0; min-height: 280px; }
+    .desk-card.image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .desk-card.image::after { content:""; position:absolute; inset:0; background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,.7)); }
+    .desk-card.image b, .desk-card.image span { position: relative; z-index: 1; margin: 22px; align-self: flex-start; }
+    .desk-card b { font-size: 22px; letter-spacing: -.03em; }
+    .desk-card span { color: rgba(255,255,255,.64); font-size: 13px; line-height: 1.45; }
+    .desk-card.light span { color: var(--muted); }
+    .desk-card .metric { font-size: 48px; font-weight: 950; letter-spacing: -.06em; }
+
+    .c5 { background: #fff; }
+    .c5 .magazine-hero { padding: 34px clamp(20px, 4vw, 62px) 62px; }
+    .mag-layout { display: grid; grid-template-columns: 1.15fr .85fr; gap: 28px; align-items: end; }
+    .mag-cover { min-height: 720px; border-radius: 38px; overflow: hidden; position: relative; background:#ddd; }
+    .mag-cover img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+    .mag-cover::after { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.74)); }
+    .mag-cover .cover-copy { position:absolute; left:28px; right:28px; bottom:28px; z-index:1; color:#fff; }
+    .mag-cover h3 { margin:0; font-family:var(--serif); font-size: clamp(40px, 5vw, 82px); line-height:.9; letter-spacing:-.055em; max-width:760px; }
+    .mag-side { display:grid; gap:14px; }
+    .issue-card { border-top: 1px solid rgba(16,19,25,.14); padding: 22px 0; display:grid; grid-template-columns: 92px 1fr; gap:18px; align-items:center; }
+    .issue-card img { width:92px; height:92px; border-radius: 18px; object-fit: cover; }
+    .issue-card b { display:block; margin-bottom:6px; }
+    .issue-card span { color:var(--muted); font-size:14px; line-height:1.45; }
+
+    .c6 { background: #fbfbf8; }
+    .c6 .minimal-hero { padding: 34px clamp(20px, 4vw, 62px) 68px; min-height: 820px; display:flex; flex-direction:column; }
+    .minimal-head { display:grid; grid-template-columns: 1fr .62fr; gap: 26px; align-items:end; margin: 64px 0 42px; }
+    .minimal-head h2 { font-family: var(--sans); font-size: clamp(54px, 8vw, 132px); line-height: .82; letter-spacing: -.085em; font-weight: 950; }
+    .minimal-band { border-top: 1px solid rgba(16,19,25,.16); border-bottom: 1px solid rgba(16,19,25,.16); display:grid; grid-template-columns: repeat(4, 1fr); }
+    .minimal-band div { min-height: 240px; padding: 24px; border-right: 1px solid rgba(16,19,25,.12); display:flex; flex-direction:column; justify-content:space-between; }
+    .minimal-band div:last-child { border-right:0; }
+    .minimal-band b { font-size: 22px; letter-spacing: -.03em; }
+    .minimal-band span { color:var(--muted); font-size:13px; line-height:1.45; }
+    .minimal-image { margin-top: 18px; border-radius: 28px; overflow:hidden; height: 330px; }
+    .minimal-image img { width:100%; height:100%; object-fit:cover; }
+
+    .c7 { background: #111827; color:#fff; }
+    .c7 .velocity-hero { padding: 34px clamp(20px, 4vw, 62px) 62px; display:grid; grid-template-columns:.9fr 1.1fr; gap:32px; align-items:center; }
+    .c7 .lead { color: rgba(255,255,255,.68); }
+    .velocity-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; }
+    .velocity-card { min-height: 210px; border-radius: 26px; padding:22px; background: rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); display:flex; flex-direction:column; justify-content:space-between; }
+    .velocity-card.image { padding:0; overflow:hidden; }
+    .velocity-card.image img { width:100%; height:100%; object-fit:cover; }
+    .velocity-card.big { grid-column: span 2; background:#f2efe8; color:#111827; }
+    .velocity-card strong { font-size: 44px; line-height:.9; letter-spacing:-.06em; }
+    .velocity-card span { color: rgba(255,255,255,.62); font-size:13px; line-height:1.45; }
+    .velocity-card.big span { color:#6b7280; }
+
+    .c8 { background: #efe8db; }
+    .c8 .story-hero { padding: 34px clamp(20px, 4vw, 62px) 68px; display:grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; }
+    .story-photo { min-height: 720px; border-radius: 38px; overflow:hidden; position:relative; background:#ddd; }
+    .story-photo img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+    .story-copy { border-radius: 38px; background: #fffaf2; padding: clamp(28px,4vw,56px); display:flex; flex-direction:column; justify-content:space-between; }
+    .story-proof { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:30px; }
+    .story-proof div { background:#fff; border:1px solid rgba(16,19,25,.08); border-radius:24px; padding:20px; }
+    .story-proof b { display:block; margin-bottom:6px; }
+    .story-proof span { color:var(--muted); font-size:13px; line-height:1.45; }
+
     @media (max-width: 980px) {
       .topbar, .site-nav, .section-head, .dark-cta { align-items: flex-start; flex-direction: column; }
       .brief-strip, .category-grid, .takeaway-grid, .flow { grid-template-columns: 1fr 1fr; }
-      .c1 .hero, .c2 .hero-dark, .c3 .market-grid { grid-template-columns: 1fr; min-height: auto; }
+      .c1 .hero, .c2 .hero-dark, .c3 .market-grid, .c4 .desk-hero, .mag-layout, .minimal-head, .c7 .velocity-hero, .c8 .story-hero { grid-template-columns: 1fr; min-height: auto; }
       .gallery-stack, .mosaic, .catalog-wall { min-height: 520px; }
       .site-links { flex-wrap: wrap; }
     }
     @media (max-width: 640px) {
-      .brief-strip, .category-grid, .routes, .takeaway-grid, .flow { grid-template-columns: 1fr; }
+      .brief-strip, .category-grid, .routes, .takeaway-grid, .flow, .desk-board, .minimal-band, .velocity-grid, .story-proof { grid-template-columns: 1fr; }
       .gallery-stack, .mosaic, .catalog-wall { display: block; min-height: auto; }
       .gallery-stack .big, .gallery-stack .small, .mosaic .tile, .product-tile { min-height: 320px; margin-bottom: 12px; }
       .op-strip { grid-template-columns: 1fr; }
@@ -341,6 +409,7 @@
       <a href="#concept-1">01 Editorial Importer</a>
       <a href="#concept-2">02 Cold Chain Dark</a>
       <a href="#concept-3">03 Buyer Finder</a>
+      <a href="#concept-4">04-08 More Directions</a>
       <a href="#takeaways">Recommendation</a>
     </nav>
     <span class="ghost-btn">Refero-inspired / not production code</span>
@@ -463,9 +532,82 @@
     </section>
   </article>
 
+
+  <article class="concept c4" id="concept-4">
+    <div class="concept-label"><strong>Concept 04 — Wholesale Buyer Desk</strong><span class="mini-note"><i class="dot"></i> Operational, concierge-like, strongest if we want trust before visual drama</span></div>
+    <nav class="site-nav">
+      <a class="site-logo" href="#"><img src="assets/djrfoods-logo.png" alt="" /> DJR Foods</a>
+      <div class="site-links"><a>Programs</a><a>Catalog</a><a>Cold Chain</a><a>Account Desk</a></div>
+      <a class="cta" href="#">Talk to buyer desk →</a>
+    </nav>
+    <section class="desk-hero">
+      <div class="desk-copy">
+        <div><div class="kicker">Wholesale made legible</div><h2>Your Asian grocery buying desk.</h2><p class="lead">A more B2B-operational direction: less “brand marketing,” more confidence that DJR can qualify the buyer, recommend the right programs, and route them into CS/PLT pricing fast.</p><div class="action-row"><a class="cta" href="#">Request account review</a><a class="cta secondary" href="#">See buyer programs</a></div></div>
+        <div class="op-strip"><div><strong>01</strong><span>Qualify account</span></div><div><strong>02</strong><span>Match categories</span></div><div><strong>03</strong><span>Open pricing</span></div></div>
+      </div>
+      <div class="desk-board">
+        <div class="desk-card image"><img src="assets/paldo-noodles-drinks-wholesale.webp" alt="Paldo wholesale assortment" /><b>Dry grocery</b><span>Noodles, drinks, snacks.</span></div>
+        <div class="desk-card"><span>Account signal</span><div class="metric">CS / PLT</div><span>Make the buying model visible above the fold.</span></div>
+        <div class="desk-card light"><b>Buyer fit filters</b><span>Grocery, supermarket, convenience, cash-and-carry. One click changes the suggested starter assortment.</span></div>
+        <div class="desk-card image"><img src="assets/aiko-garden-3d-fruit-ice-cream.webp" alt="3D fruit ice cream" /><b>Frozen lane</b><span>Cold-chain products get their own proof.</span></div>
+      </div>
+    </section>
+  </article>
+
+  <article class="concept c5" id="concept-5">
+    <div class="concept-label"><strong>Concept 05 — Brand Market Magazine</strong><span class="mini-note"><i class="dot"></i> Most editorial; makes DJR feel like a curated import authority</span></div>
+    <nav class="site-nav"><a class="site-logo" href="#"><img src="assets/djrfoods-logo.png" alt="" /> DJR Foods</a><div class="site-links"><a>Featured Drops</a><a>Brands</a><a>Categories</a><a>Wholesale</a></div><a class="cta" href="#">View current drops →</a></nav>
+    <section class="magazine-hero">
+      <div class="mag-layout">
+        <div class="mag-cover"><img src="assets/samyang-ramen-wholesale-3.webp" alt="Samyang ramen lineup" /><div class="cover-copy"><div class="kicker">Retail velocity report</div><h3>Ramen, snacks, drinks, and frozen novelties buyers actually reorder.</h3></div></div>
+        <div class="mag-side"><div><div class="kicker">Importer editorial</div><h2>Wholesale as a curated market report.</h2><p class="lead">This direction turns the homepage into a monthly buyer-facing edit: featured brands, high-velocity categories, and seasonal/frozen drops. It feels less like a generic distributor and more like a buying guide.</p><a class="cta" href="#">Open wholesale account</a></div>
+          <div class="issue-card"><img src="assets/hong-qi-3d-ice-cream-peach.webp" alt="Peach ice cream" /><div><b>Frozen novelty edit</b><span>Hero the viral shelf appeal and handling confidence.</span></div></div>
+          <div class="issue-card"><img src="assets/product-204.jpg" alt="Snack product" /><div><b>Impulse snack lane</b><span>Quick-scan cards for convenience and grocery buyers.</span></div></div>
+          <div class="issue-card"><img src="assets/paldo-noodles-drinks-wholesale.webp" alt="Paldo wholesale" /><div><b>Brand-led program</b><span>Priority brands presented like buyer issues, not a logo wall.</span></div></div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <article class="concept c6" id="concept-6">
+    <div class="concept-label"><strong>Concept 06 — Minimal Trade Portal</strong><span class="mini-note"><i class="dot"></i> Quiet luxury, strongest if DJR wants a cleaner premium reset</span></div>
+    <nav class="site-nav"><a class="site-logo" href="#"><img src="assets/djrfoods-logo.png" alt="" /> DJR Foods</a><div class="site-links"><a>Catalog</a><a>Programs</a><a>Brands</a><a>Contact</a></div><a class="cta" href="#">Enter trade portal →</a></nav>
+    <section class="minimal-hero">
+      <div class="minimal-head"><div><div class="kicker">Asian food trade portal</div><h2>Wholesale without the noise.</h2></div><div><p class="lead">A disciplined black/white version that removes the current rounded-indigo SaaS feeling. Best if the homepage should feel more established, calm, and premium.</p><div class="action-row"><a class="cta" href="#">Request access</a><a class="cta secondary" href="#">Browse catalog</a></div></div></div>
+      <div class="minimal-band"><div><b>Frozen</b><span>Novelty ice cream and cold-chain products.</span></div><div><b>Dry grocery</b><span>Ramen, snacks, beverage lanes.</span></div><div><b>Brands</b><span>Korean, Japanese, Chinese, Filipino portfolio.</span></div><div><b>Programs</b><span>CS and PLT buying models surfaced clearly.</span></div></div>
+      <div class="minimal-image"><img src="assets/aiko-garden-3d-fruit-ice-cream.webp" alt="Assorted 3D fruit ice cream" /></div>
+    </section>
+  </article>
+
+  <article class="concept c7" id="concept-7">
+    <div class="concept-label" style="background:#111827;color:#fff;border-color:rgba(255,255,255,.1)"><strong>Concept 07 — Retail Velocity Index</strong><span class="mini-note" style="color:rgba(255,255,255,.62)"><i class="dot"></i> Strongest if we want proof/data to sell the buyer</span></div>
+    <nav class="site-nav"><a class="site-logo" href="#"><img src="assets/djrfoods-logo.png" alt="" /> DJR Foods</a><div class="site-links"><a>Top SKUs</a><a>Velocity</a><a>Categories</a><a>Access</a></div><a class="cta" href="#">See pricing →</a></nav>
+    <section class="velocity-hero">
+      <div><div class="kicker">Top-moving wholesale categories</div><h2>Lead with what moves.</h2><p class="lead">This direction frames DJR as a data-informed distributor: buyers immediately see “fast-moving SKUs,” starter programs, and category proof. Less lifestyle, more purchase confidence.</p><div class="action-row"><a class="cta" href="#">Request buyer access</a><a class="cta secondary" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.22)" href="#">View Top 25 SKUs</a></div></div>
+      <div class="velocity-grid">
+        <div class="velocity-card big"><strong>Top 25</strong><span>Use the existing fast-moving SKU section as a homepage proof system, not just a carousel.</span></div>
+        <div class="velocity-card image"><img src="assets/samyang-ramen-wholesale-1.webp" alt="Samyang ramen" /></div>
+        <div class="velocity-card"><strong>50+</strong><span>Brand portfolio positioned as category coverage.</span></div>
+        <div class="velocity-card image"><img src="assets/hong-qi-3d-ice-cream-mango.webp" alt="Mango ice cream" /></div>
+        <div class="velocity-card"><strong>CS</strong><span>Case pricing path is always one click away.</span></div>
+        <div class="velocity-card"><strong>PLT</strong><span>Pallet volume buyer path shown without a sales call.</span></div>
+      </div>
+    </section>
+  </article>
+
+  <article class="concept c8" id="concept-8">
+    <div class="concept-label"><strong>Concept 08 — Founder / Importer Story</strong><span class="mini-note"><i class="dot"></i> Most trust-building; good for buyers who need to know who is behind the catalog</span></div>
+    <nav class="site-nav"><a class="site-logo" href="#"><img src="assets/djrfoods-logo.png" alt="" /> DJR Foods</a><div class="site-links"><a>Story</a><a>Products</a><a>Brands</a><a>Wholesale</a></div><a class="cta" href="#">Partner with DJR →</a></nav>
+    <section class="story-hero">
+      <div class="story-photo"><img src="assets/paldo-noodles-drinks-wholesale.webp" alt="Wholesale product assortment" /></div>
+      <div class="story-copy"><div><div class="kicker">From importer relationships to retail shelves</div><h2>A wholesale partner with taste and follow-through.</h2><p class="lead">This is the human-trust direction: less “catalog first,” more “we know Asian retail and we help you buy the right mix.” It would need real warehouse/team/customer photography to be production-ready.</p><div class="story-proof"><div><b>Curated inventory</b><span>Explain why these products are selected for U.S. retail buyers.</span></div><div><b>Operational proof</b><span>Show cold-chain, CS/PLT, lead time, and contact path with restraint.</span></div></div></div><div class="action-row"><a class="cta" href="#">Open wholesale account</a><a class="cta secondary" href="#">Read our story</a></div></div>
+    </section>
+  </article>
+
+
   <section class="takeaways" id="takeaways">
     <div class="kicker">Recommendation</div>
-    <h2>Use Concept 01 as the base, steal the guided buyer module from Concept 03, and reserve Concept 02 for a frozen/category campaign page.</h2>
+    <h2>Use Concept 01 as the base, steal the guided buyer module from Concept 03, and borrow Concept 04's buyer-desk language for trust. Concept 02 can become a frozen/category campaign page.</h2>
     <div class="takeaway-grid">
       <div><b>Homepage direction</b><span>Concept 01 gives the strongest main landing page balance: premium product gallery, immediate buyer proof, clear account CTA, and fewer generic feature blocks.</span></div>
       <div><b>Conversion upgrade</b><span>Add Concept 03’s buyer-path module below the hero so grocery, C-store, cash-and-carry, and supermarket buyers self-identify before opening wholesale access.</span></div>
