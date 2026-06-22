@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DJR Foods Landing Page Concepts — Refero Direction Board</title>
+  <style>
+    :root {
+      --ink: #101319;
+      --ink-2: #293241;
+      --muted: #737a86;
+      --paper: #f7f3eb;
+      --paper-2: #fffaf2;
+      --line: rgba(16, 19, 25, .12);
+      --card: #ffffff;
+      --indigo: #4f46e5;
+      --plum: #302961;
+      --orange: #e96f31;
+      --sage: #79856b;
+      --black: #08090b;
+      --cream: #faf5ec;
+      --radius: 28px;
+      --shadow: 0 28px 80px rgba(16, 19, 25, .14);
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% -12%, rgba(233,111,49,.18), transparent 30%),
+        linear-gradient(180deg, #fffaf2 0%, #f4efe7 38%, #eae4da 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    button { font: inherit; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px clamp(16px, 3vw, 42px);
+      background: rgba(250,245,236,.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(16,19,25,.08);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 220px;
+      font-weight: 900;
+      letter-spacing: -.03em;
+    }
+    .brand img { width: 36px; height: 36px; object-fit: contain; border-radius: 9px; background: #fff; }
+    .brand small { display: block; color: var(--muted); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+    .nav-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .nav-pills a, .ghost-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 10px 14px;
+      border: 1px solid rgba(16,19,25,.12);
+      border-radius: 999px;
+      color: var(--ink-2);
+      background: rgba(255,255,255,.55);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .04em;
+    }
+    .nav-pills a:hover { background: #fff; border-color: rgba(16,19,25,.28); }
+    .board-hero {
+      padding: 48px clamp(18px, 4vw, 60px) 26px;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+    .kicker {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+    .board-hero h1 {
+      margin: 12px 0 14px;
+      max-width: 1120px;
+      font-family: var(--serif);
+      font-size: clamp(48px, 7vw, 112px);
+      line-height: .88;
+      letter-spacing: -.065em;
+    }
+    .board-hero p {
+      max-width: 780px;
+      margin: 0;
+      color: #555d69;
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.5;
+    }
+    .brief-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 1500px;
+      margin: 0 auto 34px;
+      padding: 0 clamp(18px, 4vw, 60px);
+    }
+    .brief-strip div {
+      background: rgba(255,255,255,.58);
+      border: 1px solid rgba(16,19,25,.09);
+      border-radius: 22px;
+      padding: 18px 18px 16px;
+      min-height: 110px;
+    }
+    .brief-strip strong { display: block; margin-bottom: 8px; font-size: 13px; }
+    .brief-strip span { color: var(--muted); font-size: 13px; line-height: 1.45; }
+
+    .concept {
+      width: min(1500px, calc(100vw - 28px));
+      margin: 26px auto 70px;
+      border-radius: 42px;
+      overflow: hidden;
+      border: 1px solid rgba(16,19,25,.1);
+      box-shadow: var(--shadow);
+      background: var(--card);
+    }
+    .concept-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 18px 26px;
+      border-bottom: 1px solid rgba(16,19,25,.08);
+      background: rgba(255,255,255,.7);
+    }
+    .concept-label strong { font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+    .concept-label span { color: var(--muted); font-size: 13px; }
+    .mini-note { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
+    .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--orange); display: inline-block; }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px clamp(20px, 3.5vw, 56px);
+    }
+    .site-logo { display: flex; align-items: center; gap: 10px; font-weight: 950; letter-spacing: -.03em; }
+    .site-logo img { width: 34px; height: 34px; object-fit: contain; }
+    .site-links { display: flex; gap: 22px; color: rgba(16,19,25,.62); font-size: 13px; font-weight: 750; }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      min-height: 46px;
+      padding: 13px 18px;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: #fff;
+      box-shadow: 0 16px 38px rgba(16,19,25,.18);
+    }
+    .cta.secondary { background: #fff; color: var(--ink); border: 1px solid rgba(16,19,25,.12); box-shadow: none; }
+
+    /* Concept 01 */
+    .c1 { background: #fffaf2; }
+    .c1 .hero {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: clamp(28px, 4vw, 62px);
+      align-items: center;
+      padding: 34px clamp(20px, 4vw, 62px) 58px;
+      min-height: 760px;
+    }
+    .c1 h2 {
+      margin: 0 0 22px;
+      font-family: var(--serif);
+      font-size: clamp(52px, 6.3vw, 106px);
+      line-height: .89;
+      letter-spacing: -.065em;
+      max-width: 810px;
+    }
+    .c1 .lead { max-width: 650px; color: #555c68; font-size: 20px; line-height: 1.55; margin: 0 0 30px; }
+    .action-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .op-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 44px; max-width: 640px; }
+    .op-strip div { border-top: 1px solid rgba(16,19,25,.15); padding-top: 14px; }
+    .op-strip strong { font-size: 24px; letter-spacing: -.04em; }
+    .op-strip span { display: block; color: var(--muted); font-size: 12px; margin-top: 4px; }
+    .gallery-stack {
+      display: grid;
+      grid-template-columns: 1fr .78fr;
+      gap: 14px;
+      min-height: 600px;
+    }
+    .gallery-stack .big, .gallery-stack .small {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      background: #eee;
+    }
+    .gallery-stack .big { grid-row: span 2; }
+    .gallery-stack img { width: 100%; height: 100%; object-fit: cover; }
+    .caption-card {
+      position: absolute;
+      left: 18px; right: 18px; bottom: 18px;
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(18px);
+      font-weight: 900;
+      box-shadow: 0 18px 45px rgba(0,0,0,.12);
+    }
+    .caption-card small { display: block; color: var(--muted); font-weight: 750; margin-top: 4px; }
+    .c1 .finder { padding: 0 clamp(20px, 4vw, 62px) 58px; }
+    .section-head { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 22px; }
+    .section-head h3 { margin: 0; font-family: var(--serif); font-size: clamp(36px, 4vw, 66px); line-height: .95; letter-spacing: -.045em; }
+    .section-head p { max-width: 420px; color: var(--muted); line-height: 1.5; margin: 0; }
+    .category-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .category-card { background: #fff; border: 1px solid rgba(16,19,25,.08); border-radius: 28px; overflow: hidden; }
+    .category-card img { width: 100%; height: 190px; object-fit: cover; background: #f5f5f5; }
+    .category-card .body { padding: 18px; }
+    .category-card b { display: block; margin-bottom: 8px; }
+    .category-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; }
+
+    /* Concept 02 */
+    .c2 { background: #07080a; color: #fff; }
+    .c2 .site-nav { color: #fff; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .c2 .site-links { color: rgba(255,255,255,.62); }
+    .c2 .cta { background: #fff; color: #07080a; }
+    .c2 .hero-dark {
+      min-height: 850px;
+      display: grid;
+      grid-template-columns: .84fr 1.16fr;
+      gap: 38px;
+      padding: 52px clamp(20px, 4vw, 62px) 62px;
+      position: relative;
+      overflow: hidden;
+    }
+    .c2 .hero-dark::before {
+      content: "";
+      position: absolute; inset: -20% -10% auto auto;
+      width: 580px; height: 580px;
+      background: radial-gradient(circle, rgba(233,111,49,.28), transparent 62%);
+      pointer-events: none;
+    }
+    .c2 h2 { margin: 0 0 24px; font-family: var(--serif); font-size: clamp(52px, 7vw, 116px); line-height: .86; letter-spacing: -.065em; }
+    .c2 .lead { color: rgba(255,255,255,.68); font-size: 20px; line-height: 1.55; max-width: 600px; margin: 0 0 28px; }
+    .dark-panel { align-self: end; position: relative; z-index: 2; }
+    .routes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 42px; max-width: 640px; }
+    .route-card { border: 1px solid rgba(255,255,255,.12); border-radius: 24px; padding: 18px; background: rgba(255,255,255,.06); }
+    .route-card strong { display: block; margin-bottom: 8px; }
+    .route-card span { color: rgba(255,255,255,.58); font-size: 13px; line-height: 1.45; }
+    .mosaic { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1.1fr .9fr; gap: 14px; min-height: 690px; position: relative; z-index: 2; }
+    .mosaic .tile { overflow: hidden; border-radius: 28px; background: #1b1d23; position: relative; }
+    .mosaic .tile:first-child { grid-row: span 2; }
+    .mosaic .tile:nth-child(4) { grid-column: span 2; }
+    .mosaic img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.08) contrast(1.02); }
+    .overlay-stat { position: absolute; left: 18px; bottom: 18px; right: 18px; padding: 14px; border-radius: 18px; background: rgba(8,9,11,.62); backdrop-filter: blur(12px); font-weight: 900; }
+    .overlay-stat small { color: rgba(255,255,255,.6); display: block; margin-top: 3px; font-weight: 750; }
+    .dark-cta { margin: 0 clamp(20px, 4vw, 62px) 64px; border: 1px solid rgba(255,255,255,.12); border-radius: 34px; padding: clamp(24px, 5vw, 54px); background: linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.04)); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+    .dark-cta h3 { margin: 0 0 10px; font-size: clamp(30px, 4vw, 58px); line-height: .95; letter-spacing: -.04em; }
+    .dark-cta p { margin: 0; color: rgba(255,255,255,.64); max-width: 680px; line-height: 1.5; }
+
+    /* Concept 03 */
+    .c3 { background: #f8f9f5; }
+    .c3 .hero-market { padding: 34px clamp(20px, 4vw, 62px) 58px; }
+    .c3 .market-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 34px; align-items: stretch; }
+    .c3 .copy-card { border-radius: 36px; background: #162218; color: #fff; padding: clamp(28px, 4vw, 56px); min-height: 650px; display: flex; flex-direction: column; justify-content: space-between; }
+    .c3 h2 { margin: 0; font-family: var(--serif); font-size: clamp(48px, 6vw, 96px); line-height: .88; letter-spacing: -.06em; }
+    .c3 .lead { color: rgba(255,255,255,.7); font-size: 19px; line-height: 1.55; max-width: 560px; margin: 20px 0 28px; }
+    .buyer-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+    .buyer-tabs button { border: 1px solid rgba(255,255,255,.16); color: rgba(255,255,255,.76); background: transparent; border-radius: 999px; padding: 10px 13px; cursor: pointer; font-size: 12px; font-weight: 850; }
+    .buyer-tabs button.active { background: #fff; color: #162218; }
+    .program-card { border: 1px solid rgba(255,255,255,.12); border-radius: 28px; padding: 20px; margin-top: 22px; background: rgba(255,255,255,.06); }
+    .program-card strong { display: block; margin-bottom: 8px; font-size: 20px; }
+    .program-card span { color: rgba(255,255,255,.64); line-height: 1.45; }
+    .catalog-wall { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: minmax(210px, auto); gap: 14px; }
+    .product-tile { border-radius: 30px; overflow: hidden; background: #fff; border: 1px solid rgba(16,19,25,.08); position: relative; min-height: 210px; display: flex; flex-direction: column; justify-content: end; }
+    .product-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .product-tile.tall { grid-row: span 2; }
+    .product-tile.wide { grid-column: span 2; }
+    .product-tile .shade { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 32%, rgba(0,0,0,.66)); }
+    .tile-copy { position: relative; z-index: 1; color: #fff; padding: 18px; }
+    .tile-copy b { display: block; margin-bottom: 6px; }
+    .tile-copy small { color: rgba(255,255,255,.7); line-height: 1.4; }
+    .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 0 clamp(20px, 4vw, 62px) 62px; }
+    .flow div { border-radius: 24px; background: #fff; padding: 22px; border: 1px solid rgba(16,19,25,.08); }
+    .flow b { display: block; margin-bottom: 8px; }
+    .flow span { color: var(--muted); font-size: 13px; line-height: 1.45; }
+
+    .takeaways {
+      width: min(1500px, calc(100vw - 28px));
+      margin: 0 auto 70px;
+      background: rgba(255,255,255,.7);
+      border: 1px solid rgba(16,19,25,.08);
+      border-radius: 36px;
+      padding: clamp(24px, 4vw, 48px);
+    }
+    .takeaways h2 { margin: 0 0 18px; font-family: var(--serif); font-size: clamp(34px, 4vw, 64px); letter-spacing: -.045em; line-height: .95; }
+    .takeaway-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .takeaway-grid div { background: #fff; border-radius: 24px; padding: 22px; border: 1px solid rgba(16,19,25,.07); }
+    .takeaway-grid b { display: block; margin-bottom: 10px; }
+    .takeaway-grid span { color: var(--muted); font-size: 14px; line-height: 1.5; }
+
+    @media (max-width: 980px) {
+      .topbar, .site-nav, .section-head, .dark-cta { align-items: flex-start; flex-direction: column; }
+      .brief-strip, .category-grid, .takeaway-grid, .flow { grid-template-columns: 1fr 1fr; }
+      .c1 .hero, .c2 .hero-dark, .c3 .market-grid { grid-template-columns: 1fr; min-height: auto; }
+      .gallery-stack, .mosaic, .catalog-wall { min-height: 520px; }
+      .site-links { flex-wrap: wrap; }
+    }
+    @media (max-width: 640px) {
+      .brief-strip, .category-grid, .routes, .takeaway-grid, .flow { grid-template-columns: 1fr; }
+      .gallery-stack, .mosaic, .catalog-wall { display: block; min-height: auto; }
+      .gallery-stack .big, .gallery-stack .small, .mosaic .tile, .product-tile { min-height: 320px; margin-bottom: 12px; }
+      .op-strip { grid-template-columns: 1fr; }
+      .concept { border-radius: 26px; }
+      .site-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" id="top">
+      <img src="assets/djrfoods-logo.png" alt="DJR Foods logo" />
+      <span>DJR Foods <small>Landing concept board</small></span>
+    </a>
+    <nav class="nav-pills" aria-label="Concept navigation">
+      <a href="#concept-1">01 Editorial Importer</a>
+      <a href="#concept-2">02 Cold Chain Dark</a>
+      <a href="#concept-3">03 Buyer Finder</a>
+      <a href="#takeaways">Recommendation</a>
+    </nav>
+    <span class="ghost-btn">Refero-inspired / not production code</span>
+  </header>
+
+  <section class="board-hero">
+    <div class="kicker">DJR Foods main landing page exploration</div>
+    <h1>Three premium directions for turning wholesale grocery into a curated buying experience.</h1>
+    <p>Built from the current DJR Foods homepage structure and real product imagery, but pushed into a quieter Refero-style system: editorial type, product-gallery rhythm, tighter buyer paths, and stronger operational proof near the top.</p>
+  </section>
+
+  <section class="brief-strip" aria-label="Design brief summary">
+    <div><strong>Audience</strong><span>Asian grocery, supermarket, cash-and-carry, and convenience buyers who need trust before pricing access.</span></div>
+    <div><strong>Conversion</strong><span>Primary action stays wholesale account access; secondary action lets buyers browse catalog categories.</span></div>
+    <div><strong>Visual rule</strong><span>Use real product photography as the color, not generic gradients or icon-heavy SaaS sections.</span></div>
+    <div><strong>Repo context</strong><span>Current page already has Hero, BuyerInfoBar, Logistics, ProductSlider, BrandShowcase, InquiryForm, FAQ.</span></div>
+  </section>
+
+  <article class="concept c1" id="concept-1">
+    <div class="concept-label"><strong>Concept 01 — Editorial Importer</strong><span class="mini-note"><i class="dot"></i> Best overall fit: premium, clear, strong buyer trust</span></div>
+    <nav class="site-nav">
+      <a class="site-logo" href="#"><img src="assets/djrfoods-logo.png" alt="" /> DJR Foods</a>
+      <div class="site-links"><a>Products</a><a>Brands</a><a>Catalog</a><a>About</a><a>Contact</a></div>
+      <a class="cta" href="#">Request Access →</a>
+    </nav>
+    <section class="hero">
+      <div>
+        <div class="kicker">Asian food wholesale distributor USA</div>
+        <h2>Imported snacks, ramen, drinks & frozen treats — edited for retail velocity.</h2>
+        <p class="lead">A buyer-first homepage that feels like a curated trade desk: what sells, what ships cold, what programs are available, and how to open wholesale pricing without hunting.</p>
+        <div class="action-row"><a class="cta" href="#">Open wholesale account</a><a class="cta secondary" href="#">Browse categories</a></div>
+        <div class="op-strip">
+          <div><strong>360+</strong><span>active SKUs surfaced as buyer inventory</span></div>
+          <div><strong>50+</strong><span>brands across Korean, Japanese, Chinese, Filipino</span></div>
+          <div><strong>CS / PLT</strong><span>programs displayed as simple buying paths</span></div>
+        </div>
+      </div>
+      <div class="gallery-stack" aria-label="Product gallery">
+        <div class="big"><img src="assets/aiko-garden-3d-fruit-ice-cream.webp" alt="Aiko Garden 3D fruit ice cream" /><div class="caption-card">Novelty frozen desserts<small>Hero card for cold-chain differentiation</small></div></div>
+        <div class="small"><img src="assets/samyang-ramen-wholesale-2.webp" alt="Samyang ramen wholesale display" /></div>
+        <div class="small"><img src="assets/paldo-noodles-drinks-wholesale.webp" alt="Paldo noodles and drinks" /></div>
+      </div>
+    </section>
+    <section class="finder">
+      <div class="section-head"><h3>Shop the page like a buyer, not a brochure.</h3><p>Replace generic feature blocks with concise product lanes that connect directly to catalog/account intent.</p></div>
+      <div class="category-grid">
+        <div class="category-card"><img src="assets/hong-qi-3d-ice-cream-peach.webp" alt="Peach 3D ice cream" /><div class="body"><b>Frozen Asian Foods</b><p>Novelty ice cream, desserts, and cold-chain products that need reliable handling.</p></div></div>
+        <div class="category-card"><img src="assets/samyang-ramen-wholesale-1.webp" alt="Samyang ramen" /><div class="body"><b>Instant Noodles</b><p>Fast-moving ramen and noodle programs for retail aisles and bulk buyers.</p></div></div>
+        <div class="category-card"><img src="assets/product-204.jpg" alt="Product card" /><div class="body"><b>Snacks</b><p>Imported chips, sweets, and impulse products displayed as category drops.</p></div></div>
+        <div class="category-card"><img src="assets/product-203.jpg" alt="Product card" /><div class="body"><b>Beverages</b><p>Asian beverages and refreshment lanes with account-gated pricing CTA.</p></div></div>
+      </div>
+    </section>
+  </article>
+
+  <article class="concept c2" id="concept-2">
+    <div class="concept-label" style="background:#07080a;color:#fff;border-color:rgba(255,255,255,.1)"><strong>Concept 02 — Cold Chain Dark</strong><span class="mini-note" style="color:rgba(255,255,255,.58)"><i class="dot"></i> More dramatic; useful if frozen novelty products are the homepage hook</span></div>
+    <nav class="site-nav">
+      <a class="site-logo" href="#"><img src="assets/djrfoods-logo.png" alt="" /> DJR Foods</a>
+      <div class="site-links"><a>Frozen</a><a>Ramen</a><a>Brands</a><a>Catalog</a></div>
+      <a class="cta" href="#">Get CS pricing →</a>
+    </nav>
+    <section class="hero-dark">
+      <div class="dark-panel">
+        <div class="kicker">Cold-chain proof + retail velocity</div>
+        <h2>Viral frozen products, stocked for wholesale buyers.</h2>
+        <p class="lead">This direction makes DJR feel more specialized and premium: hero the novelty ice cream category, then immediately answer distribution, MOQ, lead time, and buyer fit.</p>
+        <div class="action-row"><a class="cta" href="#">Request cold-chain access</a><a class="cta secondary" href="#" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.22)">See frozen catalog</a></div>
+        <div class="routes">
+          <div class="route-card"><strong>Frozen / dry split</strong><span>Make handling constraints obvious before the buyer reaches a form.</span></div>
+          <div class="route-card"><strong>Buyer-ready proof</strong><span>Use product imagery, category lanes, and simple logistics language instead of generic claims.</span></div>
+        </div>
+      </div>
+      <div class="mosaic">
+        <div class="tile"><img src="assets/niceme-strawberry-steak-ice-cream.webp" alt="Niceme strawberry steak ice cream" /><div class="overlay-stat">3D / novelty frozen<small>Hero category story</small></div></div>
+        <div class="tile"><img src="assets/hong-qi-3d-ice-cream-mango.webp" alt="Mango ice cream" /></div>
+        <div class="tile"><img src="assets/tu-cha-bing-chillin-bites.webp" alt="Tu Cha Bing bites" /></div>
+        <div class="tile"><img src="assets/aiko-garden-3d-fruit-ice-cream.webp" alt="Aiko Garden fruit ice cream" /><div class="overlay-stat">Retail-ready visual impact<small>Image-first conversion block</small></div></div>
+      </div>
+    </section>
+    <section class="dark-cta">
+      <div><h3>Give buyers one clean path: verify account → view CS pricing → build order.</h3><p>The dark version should stay sparse. It works only if the rest of the page is disciplined: fewer sections, more proof, cleaner form.</p></div>
+      <a class="cta" href="#">Start wholesale account</a>
+    </section>
+  </article>
+
+  <article class="concept c3" id="concept-3">
+    <div class="concept-label"><strong>Concept 03 — Buyer Finder</strong><span class="mini-note"><i class="dot"></i> Most conversion-system focused; turns homepage into a guided account intake</span></div>
+    <nav class="site-nav">
+      <a class="site-logo" href="#"><img src="assets/djrfoods-logo.png" alt="" /> DJR Foods</a>
+      <div class="site-links"><a>For Grocery</a><a>For C-Store</a><a>For Cash & Carry</a><a>Catalog</a></div>
+      <a class="cta" href="#" style="background:#162218">Match my program →</a>
+    </nav>
+    <section class="hero-market">
+      <div class="market-grid">
+        <div class="copy-card">
+          <div>
+            <div class="kicker" style="color:#d3a35a">Choose your buyer path</div>
+            <h2>Wholesale programs organized by how you actually buy.</h2>
+            <p class="lead">This version makes the homepage feel practical immediately: pick the retail format, see the likely categories, then request access with the right expectations.</p>
+            <div class="buyer-tabs" aria-label="Buyer program tabs">
+              <button class="active" type="button">Grocery stores</button><button type="button">Cash & carry</button><button type="button">Supermarkets</button><button type="button">Convenience</button>
+            </div>
+            <div class="program-card"><strong>Suggested lane: CS pricing + fast movers</strong><span>Ramen, frozen novelty desserts, snacks, and beverages surfaced as a curated starter assortment.</span></div>
+          </div>
+          <div class="action-row"><a class="cta" href="#">Get matched</a><a class="cta secondary" href="#">Open catalog</a></div>
+        </div>
+        <div class="catalog-wall">
+          <div class="product-tile tall"><img src="assets/samyang-ramen-wholesale-3.webp" alt="Samyang lineup" /><div class="shade"></div><div class="tile-copy"><b>Ramen programs</b><small>Fast-moving Korean noodle assortment.</small></div></div>
+          <div class="product-tile"><img src="assets/paldo-noodles-drinks-wholesale.webp" alt="Paldo products" /><div class="shade"></div><div class="tile-copy"><b>Drinks + noodles</b><small>Brand-led import lanes.</small></div></div>
+          <div class="product-tile"><img src="assets/product-203.jpg" alt="Product" /><div class="shade"></div><div class="tile-copy"><b>Impulse snacks</b><small>Retail shelf-ready categories.</small></div></div>
+          <div class="product-tile wide"><img src="assets/hong-qi-3d-ice-cream-peach.webp" alt="Peach ice cream" /><div class="shade"></div><div class="tile-copy"><b>Frozen novelty</b><small>High-impact products with cold-chain context.</small></div></div>
+        </div>
+      </div>
+    </section>
+    <section class="flow">
+      <div><b>1. Pick buyer type</b><span>Use a light filter pattern, not a heavy questionnaire.</span></div>
+      <div><b>2. Show likely categories</b><span>Guide buyers toward the right wholesale lanes.</span></div>
+      <div><b>3. Request access</b><span>CTA captures intent after the buyer understands fit.</span></div>
+      <div><b>4. Catalog pricing</b><span>Registered customer lands in the existing catalog/account path.</span></div>
+    </section>
+  </article>
+
+  <section class="takeaways" id="takeaways">
+    <div class="kicker">Recommendation</div>
+    <h2>Use Concept 01 as the base, steal the guided buyer module from Concept 03, and reserve Concept 02 for a frozen/category campaign page.</h2>
+    <div class="takeaway-grid">
+      <div><b>Homepage direction</b><span>Concept 01 gives the strongest main landing page balance: premium product gallery, immediate buyer proof, clear account CTA, and fewer generic feature blocks.</span></div>
+      <div><b>Conversion upgrade</b><span>Add Concept 03’s buyer-path module below the hero so grocery, C-store, cash-and-carry, and supermarket buyers self-identify before opening wholesale access.</span></div>
+      <div><b>Implementation note</b><span>This is a visual concept artifact only. If approved, the real task should map it into existing components: Hero, BuyerInfoBar, Logistics, ProductSlider, InquiryForm, FAQ.</span></div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.buyer-tabs button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.buyer-tabs button').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
